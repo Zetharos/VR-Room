@@ -25,9 +25,10 @@ public class OnCollision : MonoBehaviour
         OnExit.Invoke(collision);
     }
 
-    private void OnValidate()
+ /*   private void OnValidate()
     {
         if (TryGetComponent(out Collider collider))
             collider.isTrigger = false;
     }
+ */
 }
