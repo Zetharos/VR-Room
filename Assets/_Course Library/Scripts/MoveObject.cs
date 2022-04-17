@@ -4,23 +4,20 @@ using UnityEngine;
 public class MoveObject : MonoBehaviour
 {
     public GameObject RickRoll, Hand;
-    private Vector3 rickPos, handPos;
+    public Collider rickCollider;
+    private Vector3 rickPos;
     private Rigidbody rickRB;
-    private bool isCoroutineExecuting = false;
+   // private bool isCoroutineExecuting = false;
 
-    void Start()
-    {
-        rickRB = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        rickPos = RickRoll.transform.position;
- //       StartCoroutine(ExecuteAfterTime(3));
-          MoveRickBack();
-    }
-
- /*   IEnumerator ExecuteAfterTime (float time)
+  void Awake()
+  {
+     rickRB = gameObject.GetComponent<Rigidbody>();
+  }
+  void Update()
+  {
+    RickRoll.transform.position = Hand.transform.position;
+  }
+    /*IEnumerator ExecuteAfterTime (float time)
     {
         if (isCoroutineExecuting)
         yield break;
@@ -28,15 +25,17 @@ public class MoveObject : MonoBehaviour
         isCoroutineExecuting = true;
         yield return new WaitForSeconds(time);
             
-        handPos = Hand.transform.position;
         MoveRickBack(); 
 
         isCoroutineExecuting = false;
     }*/
     
-    void MoveRickBack()
+    public void MoveRickBack()
     {
-        RickRoll.transform.position = handPos;
-        rickRB.constraints = RigidbodyConstraints.FreezeRotation;
+      RickRoll.transform.SetParent(Hand.transform);
+      RickRoll.transform.rotation = Quaternion.Euler(transform.rotation.x, -transform.rotation.y, transform.rotation.z);
+      rickRB.constraints = RigidbodyConstraints.FreezePosition;
+      rickRB.constraints = RigidbodyConstraints.FreezeRotation;
+      rickCollider.isTrigger = true;
     }
 }

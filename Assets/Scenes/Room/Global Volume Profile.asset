@@ -35,7 +35,7 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 5
     min: -100
     max: 100
 --- !u!114 &-1605778605777067189
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.98
+    m_Value: 1.17
     min: 0
   intensity:
     m_OverrideState: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: -0.12356577}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.92449105, z: 0.6875901, w: 0.04413063}
+    m_Value: {x: 1, y: 0.90903246, z: 0.8601451, w: 0.04413063}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0

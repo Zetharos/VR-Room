@@ -12,7 +12,7 @@ public class TennisBallBounce : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        float speed = 0.17f * rb.velocity.magnitude;
+        float speed = 0.25f * rb.velocity.magnitude;
         audioSource.PlayOneShot(impactSound, speed);
     }
 }

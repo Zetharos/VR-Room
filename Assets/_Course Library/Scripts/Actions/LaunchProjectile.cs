@@ -27,5 +27,10 @@ public class LaunchProjectile : MonoBehaviour
     {
         Vector3 force = startPoint.forward * launchSpeed;
         rigidBody.AddForce(force);
+
+      //  if (rigidBody.velocity.x > 0.3 || rigidBody.velocity.y > 0.3 || rigidBody.velocity.z > 0.3)
+       // transform.LookAt(transform.position + rigidBody.velocity);
+
+       transform.forward = Vector3.Lerp(transform.forward, GetComponent<Rigidbody>().velocity, Time.deltaTime);
     }
 }
